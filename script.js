@@ -11,8 +11,8 @@ const mouse = {
 }
 
 canvas.addEventListener('click', function(event){
-    mouse.x = event.x;
-    mouse.y = event.y;
+    mouse.x = event.x - canvas.getBoundingClientRect().left;
+    mouse.y = event.y - canvas.getBoundingClientRect().top;
     console.log(event);
     drawCircle();
 })
@@ -23,7 +23,7 @@ function drawCircle() {
     ctx.strokeStyle = 'yellow';
     ctx.lineWidth = 10;
     ctx.beginPath();
-    ctx.arc(360, 310, 50, 0, Math.PI * 2);
+    ctx.arc(mouse.x, mouse.y, 20, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fill();
 }
