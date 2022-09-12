@@ -10,6 +10,7 @@ const mouse = {
     y: undefined,
 }
 
+
 canvas.addEventListener('click', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
@@ -20,7 +21,6 @@ canvas.addEventListener('mousemove', function(event){
     mouse.y = event.y - canvas.getBoundingClientRect().top;
 })
 
-
 function drawCircle() {
     ctx.fillStyle = 'red';
     ctx.strokeStyle = 'yellow';
@@ -29,6 +29,16 @@ function drawCircle() {
     ctx.arc(mouse.x, mouse.y, 20, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fill();
+}
+
+class Particle {
+    constructor(){
+        this.x = mouse.x;
+        this.y = mouse.y;
+        this.size = Math.random() * 5 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+    }
 }
 
 function animate() {
