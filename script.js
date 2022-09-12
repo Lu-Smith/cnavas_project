@@ -13,7 +13,12 @@ const mouse = {
 canvas.addEventListener('click', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
-    console.log(event);
+    drawCircle();
+})
+
+canvas.addEventListener('mousemove', function(event){
+    mouse.x = event.x - canvas.getBoundingClientRect().left;
+    mouse.y = event.y - canvas.getBoundingClientRect().top;
     drawCircle();
 })
 
