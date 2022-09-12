@@ -6,20 +6,18 @@ canvas.width = main.offsetWidth;
 canvas.height = main.offsetHeight;
 
 const mouse = {
-    x: null,
-    y: null,
+    x: undefined,
+    y: undefined,
 }
 
 canvas.addEventListener('click', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
-    drawCircle();
 })
 
 canvas.addEventListener('mousemove', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
-    drawCircle();
 })
 
 
@@ -33,5 +31,10 @@ function drawCircle() {
     ctx.fill();
 }
 
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCircle();
+    requestAnimationFrame(animate);
+}
 
-
+animate();
