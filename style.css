@@ -23,6 +23,20 @@ header h1 {
     font-family: 'Rampart One', cursive;
 }
 
+span {
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.8s ease;
+    rotate: -180deg;
+    color: rgb(66, 19, 85);
+}
+
+span.fade {
+    opacity: 0.9;
+    rotate: 0deg;
+    color: black;
+}
+
 header h2 {
     font-size: 18px;
     font-style: italic;
