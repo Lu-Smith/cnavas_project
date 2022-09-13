@@ -26,7 +26,7 @@ canvas.addEventListener('click', function(event){
 canvas.addEventListener('mousemove', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 3; i++){
         particlesArray.push(new Particle());
     }
 })
@@ -49,13 +49,11 @@ class Particle {
         if (this.size > 0.1) this.size -= 0.05;
     }
     draw(){
-        ctx.fillStyle = 'white';
-        ctx.strokeStyle = 'grey';
-        ctx.lineWidth = 5;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.lineWidth = "4";
+        ctx.strokeStyle = "white";
+        ctx.rect(this.x, this.y, this.size, this.size);
         ctx.stroke();
-        ctx.fill();
     }
 }
 
@@ -72,7 +70,9 @@ function handleParticle() {
 
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     handleParticle();
     console.log(particlesArray.length);
     requestAnimationFrame(animate);
