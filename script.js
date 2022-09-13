@@ -16,12 +16,19 @@ const mouse = {
 canvas.addEventListener('click', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
+    for (let i = 0; i < 5; i++){
+        particlesArray.push(new Particle());
+    }
+    
 })
+
 
 canvas.addEventListener('mousemove', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
-    particlesArray.push(new Particle());
+    for (let i = 0; i < 5; i++){
+        particlesArray.push(new Particle());
+    }
 })
 
 
@@ -42,9 +49,9 @@ class Particle {
         if (this.size > 0.1) this.size -= 0.05;
     }
     draw(){
-        ctx.fillStyle = 'red';
-        ctx.strokeStyle = 'yellow';
-        ctx.lineWidth = 10;
+        ctx.fillStyle = 'white';
+        ctx.strokeStyle = 'grey';
+        ctx.lineWidth = 5;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.stroke();
