@@ -5,7 +5,7 @@ const splitText = strText.split("");
 text.textContent = "";
 
 for (let i = 0; i < splitText.length; i++) {
-    text.innerHTML += "<span>" + splitText[i] + "    " + "</span>";
+    text.innerHTML += "<span>" + splitText[i] + "</span>";
 }
 
 let char = 0;
@@ -28,12 +28,7 @@ function complete() {
 }
 
 
-
 //canvas
-
-
-
-
 const canvas = document.getElementById('canvas1');
 const main = document.getElementById('main');
 const ctx = canvas.getContext('2d');
@@ -48,16 +43,13 @@ const mouse = {
     y: undefined,
 }
 
-
 canvas.addEventListener('click', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
     mouse.y = event.y - canvas.getBoundingClientRect().top;
     for (let i = 0; i < 5; i++){
         particlesArray.push(new Particle());
     }
-    
 })
-
 
 canvas.addEventListener('mousemove', function(event){
     mouse.x = event.x - canvas.getBoundingClientRect().left;
@@ -67,13 +59,10 @@ canvas.addEventListener('mousemove', function(event){
     }
 })
 
-
 class Particle {
     constructor(){
         this.x = mouse.x;
         this.y = mouse.y;
-        //this.x = Math.random() * canvas.width;
-        //this.y = Math.random() * canvas.height;
         this.size = Math.random() * 15 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
@@ -104,9 +93,7 @@ function handleParticle() {
     }
 }
 
-
 function animate() {
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     handleParticle();
